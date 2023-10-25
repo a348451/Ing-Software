@@ -1,1 +1,29 @@
 @import url("https://fonts.google.com/css2?family=Poppins:wight@300;400;500;600;700;800;900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background: #F6F1E9;
+}
+
+.navbar {
+    background-color: #4F200D; /* Brown color */
+    overflow: hidden;
+}
+
+.navbar a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #60380F; /* Darker brown color on hover */
+}
