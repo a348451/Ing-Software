@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/menu');
+const controller = require('../controllers/menus');
 
 router.post('/', controller.create)
 
