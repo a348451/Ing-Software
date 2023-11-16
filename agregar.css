@@ -19,10 +19,10 @@ body{
     background-color:#4F200D ; 
     color: #fff; 
     text-align: center;
-    padding: 20px;
+    padding: 50px;
     position: fixed;
     width: 100%;
-    top: 0;
+    top: 0px;
     z-index: 1000;
 }
 
@@ -30,53 +30,11 @@ body{
     margin: 0;
 }
 
-.header h2 {
-    margin-top: 5px;
-    size: 20px;
+.header2 h2 {
+size:10px
 }
 
-.wrapper .input-box {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    margin: 30px 0;
-    background-color: #FFE79B;
-    border-radius: 450px;
-}
-.wrapper{
-    margin-top: 500px;
-    display:flex;
-    flex-direction: column; 
-    justify-content: relative; 
-    align-items: center; 
-    width: 450px;
-    height: 480px;
-    background:#4F200D ;
-    border-radius: 25px;
-    color: black;
-    margin: 0 auto;
-}
-.wrapper2{
-    margin-top: 250px;
-    display:flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center;
-    width: 500px;
-    height: 510px;
-    background:#FFD93D ;
-    border-radius: 25px;
-}
-.wrapper2 form{
-align-self: center;
-    }
-.wrapper form{
-align-self: center;
-}
-
-
- .wrapper .btn{
-
+ .wrapper-right .btn{
     width: 50%;
     height: 45px;
     background-color:#F6F1E9;
@@ -86,8 +44,20 @@ align-self: center;
     color: #4F200D;
     font-style: bold;
  }
+ .center-button2 {
+    display: flex;
+    width: 500px;
+    justify-content: center; 
+    margin-top: 60px;
+}
+.center-button {
+    display: flex;
+    width: 500px;
+    justify-content: center; 
+    margin-top: 60px;
+}
 
- .center-button {
+ .center-button2 {
     display: flex;
     width: 500px;
     justify-content: center; 
@@ -101,3 +71,4 @@ align-self: center;
     box-shadow: 0 5px #FFD93D;
     transform: translateY(4px);
   }
+  
