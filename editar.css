@@ -33,6 +33,29 @@ body{
 .header2 h2 {
 size:10px
 }
+
+ .wrapper-right .btn{
+    width: 50%;
+    height: 45px;
+    background-color:#F6F1E9;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    color: #4F200D;
+    font-style: bold;
+ }
+ .center-button2 {
+    display: flex;
+    width: 500px;
+    justify-content: center; 
+    margin-top: 60px;
+}
+.center-button {
+    display: flex;
+    width: 500px;
+    justify-content: center; 
+    margin-top: 60px;
+}
 .center-button {
     display: flex;
     width: 146px;
@@ -48,3 +71,4 @@ size:10px
     background-color: #EBE4D1;
     box-shadow: 0 5px #FFD93D;
 }
+  

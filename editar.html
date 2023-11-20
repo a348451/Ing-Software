@@ -9,36 +9,41 @@
     rel="stylesheet"
     integrity="your-integrity-value"
     crossorigin="anonymous">
-    <title>Agregar elemento</title>
-    <link rel="stylesheet" href="agregar.css">
+    <title>Editar elemento</title>
+    <link rel="stylesheet" href="editar.css">
 </head>
 <body>
     <div class="header">
         <h1>Administración del menú</h1>
-        <h2>Ingresa los datos del elemento que deseas agregar</h2>
+        <h2>Ingresa los datos del elemento que deseas editar</h2>
     </div>
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="row">
             <div class="col-md-12">
                 <div class="wrapper-left">
                     <div class="center-textbox"> 
+                        <label for="selectCategoria">Selecciona el elemento que deseas editar:</label>
+                        <select class="form-select" id="selectCategoria">
+                            <option value="opcion1">Opción 1</option>
+                            <option value="opcion2">Opción 2</option>
+                            <option value="opcion3">Opción 3</option>
+                        </select>
+                    </div>
+                    <label>Ingresa los datos actualizados del elemento:</label>
+                    <div class="center-textbox"> 
                         <input type="text" class="form-control" id="inputElemento" placeholder="Nombre:">
                     </div>
-                    <div class="center-floatbox"> 
-                        <input type="float" class="form-control" id="inputEditar" placeholder="Precio:">
+                    <div class="center-textbox"> 
+                        <input type="text" class="form-control" id="inputEditar" placeholder="Precio:">
                     </div>
                     <div class="center-textbox"> 
                         <input type="text" class="form-control" id="inputEliminar" placeholder="Descripción:">
                     </div>
-                    <div class="center-textbox"> 
-                        <input type="file" class="form-control" id="inputImagen" accept="image/*" placeholder="Agregar imagen del elemento">
-                    </div>
-                    <div class="center-button text-center mt-3"> 
-                        <button class="btn" onclick="guardarDatos"><b>Guardar Datos</b></button>
+                    <div class="center-button"> 
+                        <button class="btn" onclick="guardarDatos()"><b>Guardar Datos</b></button>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -47,12 +52,10 @@
             var elemento = document.getElementById('inputElemento').value;
             var editar = document.getElementById('inputEditar').value;
             var eliminar = document.getElementById('inputEliminar').value;
-            var imagen = document.getElementById('inputImagen').value;
 
             console.log("Elemento:", elemento);
             console.log("Editar:", editar);
             console.log("Eliminar:", eliminar);
-            console.log("Imagen:", imagen);
         }
     </script>
 </body>
