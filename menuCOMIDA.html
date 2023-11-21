@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Comida</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="menuCOMIDA.css">
+
+</head>
+<body>
+
+<!--boton dropdown para elementos del menu -->
+
+  <div class="dropdown" onclick="toggleDropdown(this)">
+    <button class="dropbtn">Select an option</button>
+    <div class="dropdown-content">
+      <a href="/Elementos_Comida/platillos.html">Platillos</a>
+      <a href="/menuCOMIDA.html">Otros</a>
+      <a href="#">OOtros 2</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown(dropdown) {
+      dropdown.classList.toggle("active");
+    }
+  </script>
+
+<!--HEADER COLOR CAFE MENU-->
+<div class="center-header">
+  <header class="my-header">
+      <h1>Menú</h1>
+  </header>
+</div>
+
+
+
+<div class="container mt-4">
+  <h2>Burritos</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Foto</th>
+        <th scope="col">Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Foto 1 y nombre</th>
+        <td>Desc</td>
+      </tr>
+      <tr>
+        <th scope="row">Foto 2 y nombre</th>
+        <td>Desc</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
