@@ -69,16 +69,19 @@ function replace(req, res,next){
 }
 
 function update(req, res,next){
-    const id = req.params.id;
+    console.log(req.body);
+    const id = req.body.id;
 
     const name = req.body.name;
-    const prize = req.body.prize;
-    const disponibility = req.body.disponibility;
+    const prize = req.body.precio;
+    const desc = req.body.desc;
+    const img = req.body.img;
 
     const menu = new Object();
-    if(name) menu._name = name;
-    if(prize) menu._prize = prize;
-    if(disponibility) menu._disponibility = disponibility;
+    if(name) menu._nombre = name;
+    if(prize) menu._precio = prize;
+    if(desc) menu._descripcion = desc;
+    if(img) menu._imagen = img;
 
     Menu.findOneAndUpdate({"_id":id}, menu).then(obj => res.status(200).json({
         msg: 'Elemento actualizado corerctamente',

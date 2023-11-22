@@ -8,6 +8,8 @@ router.get('/', controller.list);
 // Ruta para agregar un nuevo producto
 router.post('/create',controller.create);
 
+router.patch('/edit', controller.update);
+
 router.delete('/delete', controller.destroy);
 
 module.exports = router;

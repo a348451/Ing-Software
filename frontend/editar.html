@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="wrapper-left">
-                    <form method="POST" action="#">
+                    <form>
                         <div class="center-textbox"> 
                             <label for="selectCategoria">Selecciona el elemento que deseas editar:</label>
                         
@@ -30,13 +30,13 @@
                         </div>
                         <label>Ingresa los datos actualizados del elemento:</label>
                         <div class="center-textbox"> 
-                            <input type="text" class="form-control" name="inputNombre" placeholder="Nombre:">
+                            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre:">
                         </div>
                         <div class="center-textbox"> 
-                            <input type="text" class="form-control" name="inputPrecio" placeholder="Precio:">
+                            <input type="text" class="form-control" id="inputPrecio" placeholder="Precio:">
                         </div>
                         <div class="center-textbox"> 
-                            <input type="text" class="form-control" name="inputDesc" placeholder="Descripción:">
+                            <input type="text" class="form-control" id="inputDesc" placeholder="Descripción:">
                         </div>
                         <div class="center-button"> 
                             <button class="btn" type="submit"><b>Guardar Datos</b></button>
@@ -48,22 +48,39 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded",function(){
-            const selection = document.getElementById('selectCategoria');
-            fetch("/menu")
-            .then(res => res.json())
-            .then(data => {
-                objs = data.obj;
-                objs.forEach(element => {
-                    const child = document.createElement('option');
-                    child.value = element._id;
-                    child.textContent = element._nombre;
-                    selection.appendChild(child);
-                });
-            }).catch(err => {
-                console.log(err);
-            });
+        document.addEventListener("DOMContentLoaded", function () {
+            const selectElemento = document.getElementById("selectCategoria");
+    
+            fetch('http://localhost:4001/')
+                .then(response => response.json())
+                .then(data => {
+                    objs = data.obj;
+                    objs.forEach(elemento => {
+                        const option = document.createElement("option");
+                        option.value = elemento._id;
+                        option.textContent = elemento._nombre;
+                        selectElemento.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Error al obtener elementos:", error));
+        });
+
+        document.addEventListener("submit", (event)=>{
+            event.preventDefault();
+            const id = document.getElementById('selectCategoria').value;
+            const name = document.getElementById('inputNombre').value;
+            const prize = document.getElementById('inputPrecio').value;
+            const desc = document.getElementById('inputDesc').value;
+            const obj = {id: id, name: name, prize: prize, desc: desc}
+            const data = JSON.stringify(obj);
+            console.log("Entry")
+            fetch(`http://localhost:4001/edit`,{
+                method: 'PATCH',
+                body: data
+            })
         })
+
+        
     </script>
 </body>
 </html>
