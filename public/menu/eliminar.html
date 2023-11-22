@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar elemento</title>
+    <link rel="stylesheet" href="../stylesheets/eliminar.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Administración del menú.</h1>
+    </div>
+
+    <div class="contenido">
+        <h2>Selecciona el elemento que deseas eliminar:</h2>
+        <form action="" method="post">
+            <label for="elemento"><b>Elemento a eliminar:</b></label>
+            <select id="elemento" name="elemento">
+            </select>
+            <div class="center-button text-center mt-3"> 
+                <button class="btn"><b>Eliminar</b></button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const selectElemento = document.getElementById("elemento");
+    
+            fetch("/menu")
+                .then(response => response.json())
+                .then(data => {
+                    objs = data.obj;
+                    objs.forEach(elemento => {
+                        const option = document.createElement("option");
+                        option.value = elemento._id;
+                        option.textContent = elemento.nombre;
+                        selectElemento.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Error al obtener elementos:", error));
+        });
+    
+        function guardarDatos() {
+            const selectedElementId = document.getElementById("elemento").value;
+    
+            // Realizar la solicitud para eliminar el elemento con el ID seleccionado
+            fetch(`/menu/${selectedElementId}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.msg);
+                window.location.reload(); // Recargar la página después de eliminar
+            })
+            .catch(error => console.error("Error al eliminar elemento:", error));
+        }
+    </script>
+    
+</body>
+</html>

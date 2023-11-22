@@ -1,23 +1,23 @@
 const Menu = require('../models/menu');
 
-function create(req,res,next){
-    const name = req.body.name;
-    const prize = req.body.prize;
-    const disponibility = req.body.disponibility;
+async function create(req,res,next){
+    const { name, precio, desc, img } = req.body;
 
-    const menu = new Menu({
-        name: name,
-        prize: prize,
-        disponibility: disponibility
+  try {
+    const nuevoElemento = new Menu({
+      nombre: name,
+      precio: precio,
+      descripcion: desc,
+      imagen: img,
     });
 
-    menu.save().then(obj => res.status(200).json({
-        msg: 'Elemento agregado correctamente',
-        obj: obj
-    })).catch(ex => res.status(500).json({
-        msg:'Error al crear elemento',
-        obj: ex
-    }))
+    await nuevoElemento.save();
+    res.redirect('/');
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error al guardar los datos');
+  }
 
 }
 
@@ -92,7 +92,7 @@ function destroy(req, res,next){
     Menu.findByIdAndDelete({"_id":id}).then(obj => res.status(200).json({
         msg: `Elemento con ID ${id} eliminado correctamente`,
         obj: obj
-    })).catch(ex => res.status(500).json({
+    }).redirect('/')).catch(ex => res.status(500).json({
         msg: `No se pudo eliminar elemento con el id ${id}`,
         obj: ex
     }));

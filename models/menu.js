@@ -1,41 +1,51 @@
 const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
-    _name: String,
-    _prize: String,
-    _disponibility: Boolean
+    _nombre: String,
+    _precio: Number,
+    _descripcion: String,
+    _imagen: String,
 });
 
 class Menu{
-    constructor(name, prize, disponibility){
-        this._name = name;
-        this._prize = prize;
-        this._disponibility = disponibility;
+    constructor(name, prize, desc, img){
+        this._nombre = name;
+        this._precio = prize;
+        this._descripcion = desc;
+        this._imagen = img;
 
     }
 
-    get name(){
-        return this._name;
+    get nombre(){
+        return this._nombre;
     }
 
-    set name(v){
-        this._name = v;
+    set nombre(v){
+        this._nombre = v;
     }
 
-    get prize(){
-        return this._prize;
+    get precio(){
+        return this._precio;
     }
 
-    set prize(v){
-        this._prize = v;
+    set precio(v){
+        this._precio = v;
     }
 
-    get disponibility(){
-        return this._disponibility;
+    get descripcion(){
+        return this._descripcion;
     }
 
-    set disponibility(v){
-        this._disponibility = v;
+    set descripcion(v){
+        this._descripcion = v;
+    }
+
+    get imagen(){
+        return this._imagen;
+    }
+
+    set imagen(v){
+        this._imagen = v;
     }
 }
 
